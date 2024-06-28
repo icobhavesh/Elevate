@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Start with opacity 0, will be animated to 1 */
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .alert.show {
+    opacity: 1;
+  }
+  
