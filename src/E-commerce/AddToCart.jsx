@@ -38,7 +38,7 @@ const AddToCart = () => {
                 </div>
 
                 <div className="flex">
-                  <span className="title-font font-medium text-2xl text-gray-900">{data.price}</span>
+                  <span className="title-font font-medium text-2xl text-gray-900">₹{(data.price * data.quantity).toFixed(1)}</span>
                   <div className="flex ml-auto space-x-4">
                     <button
                       onClick={() => updateQuantityHandler(data.id, data.quantity - 1)}

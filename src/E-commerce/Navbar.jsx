@@ -1,11 +1,16 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { GiShoppingCart } from 'react-icons/gi';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchTerm } from './ReactRedux/SearchSlice/SearchSlice';
 
 const Navbar = () => {
     const cartItems = useSelector((state) => state.Cart.items);
+    const dispatch = useDispatch();
+
+    const handleSearchChange = (e) => {
+        dispatch(setSearchTerm(e.target.value));
+    };
 
     return (
         <>
@@ -26,24 +31,26 @@ const Navbar = () => {
                         </svg>
                         <span className="ml-3 text-2xl">WatchMe</span>
                     </Link>
-                    <nav className="  w-full  md:w-auto   md:ml-auto flex    flex-wrap items-center text-base justify-center text-white capitalize font-serif font-bold hover:text-sky-400 cursor-pointer shadow-md p-4 ">
+
+                    <nav className="w-full md:w-auto md:ml-auto flex flex-wrap items-center text-base justify-center text-white capitalize font-serif font-bold hover:text-sky-400 cursor-pointer shadow-md p-4">
+                        <input
+                            className="border-2 mx-10 rounded-md text-black   outline-none border-slate-400 bg-slate-100  px-2 py-1"
+                            placeholder="Search..."
+                            type="text"
+                            onChange={handleSearchChange}
+                        />
                         <Link to="/" className="mr-5 hover:text-blue-900">
                             Home
                         </Link>
                         <Link to="/about" className="mr-5 hover:text-blue-900">
                             About
                         </Link>
-                        {/* Corrected the typo in the 'Contact' link */}
                         <Link to="/contact" className="mr-5 hover:text-gray-900">
                             Contact
                         </Link>
-                        <Link to="/addCart" className="hover:text-blue-900  ">
+                        <Link to="/addCart" className="hover:text-blue-900">
                             Cart {cartItems.length > 0 ? cartItems.length : null}
-                            {/* Displaying the shopping cart icon */}
                         </Link>
-                            {/* <span className='ml-[-px]  '>
-                                <GiShoppingCart className='w-8 h-8'  />
-                            </span> */}
                     </nav>
                 </div>
             </header>

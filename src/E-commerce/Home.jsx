@@ -16,7 +16,7 @@ const Home = () => {
                 <Route path='/' element={<HomeComponent />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/addCart' element={<AddToCart />} /> 
-                {/* < Route path='/product:id' element={<ProductDetails />} /> */}
+                {/* < Route path='/product/:id' element={<ProductDetails />} /> */}
             </Routes>  
 
         </BrowserRouter>
@@ -24,3 +24,4 @@ const Home = () => {
 }
 
 export default Home
+
